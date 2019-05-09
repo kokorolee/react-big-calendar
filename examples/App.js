@@ -25,6 +25,7 @@ import Resource from './demos/resource'
 import DndResource from './demos/dndresource'
 import Timeslots from './demos/timeslots'
 import Dnd from './demos/dnd'
+import HorizontalResource from './demos/horizontalresource'
 import Dropdown from 'react-bootstrap/lib/Dropdown'
 import MenuItem from 'react-bootstrap/lib/MenuItem'
 
@@ -42,6 +43,7 @@ const EXAMPLES = {
   rendering: 'Customized Component Rendering',
   customView: 'Custom Calendar Views',
   resource: 'Resource Scheduling',
+  horizontalresource: 'Horizontal Resource Scheduling',
   dnd: 'Addon: Drag and drop',
 }
 
@@ -78,6 +80,7 @@ class Example extends React.Component {
       timeslots: Timeslots,
       dnd: Dnd,
       dndresource: DndResource,
+      horizontalresource: HorizontalResource,
     }[selected]
 
     return (
