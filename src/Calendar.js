@@ -631,6 +631,11 @@ class Calendar extends React.Component {
        * An optional event time range for events that continue from another day
        */
       eventTimeRangeEndFormat: dateFormat,
+
+      /**
+       * An optional number, that determine whether events on the same row
+       */
+      minimumStartDifference: PropTypes.number,
     }),
 
     /**
