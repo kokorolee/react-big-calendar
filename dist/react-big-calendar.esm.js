@@ -3140,7 +3140,8 @@ var DayColumn =
           getters = _this$props.getters,
           components = _this$props.components,
           step = _this$props.step,
-          timeslots = _this$props.timeslots
+          timeslots = _this$props.timeslots,
+          minimumStartDifference = _this$props.minimumStartDifference
 
         var _assertThisInitialize = _assertThisInitialized(
             _assertThisInitialized(_this)
@@ -3152,7 +3153,8 @@ var DayColumn =
           events: events$$1,
           accessors: accessors,
           slotMetrics: slotMetrics,
-          minimumStartDifference: Math.ceil((step * timeslots) / 2),
+          minimumStartDifference:
+            minimumStartDifference || Math.ceil((step * timeslots) / 2),
         })
         return styledEvents.map(function(_ref, idx) {
           var event = _ref.event,
@@ -3605,6 +3607,7 @@ DayColumn.propTypes =
         max: PropTypes.instanceOf(Date).isRequired,
         getNow: PropTypes.func.isRequired,
         isNow: PropTypes.bool,
+        minimumStartDifference: PropTypes.number,
         rtl: PropTypes.bool,
         accessors: PropTypes.object.isRequired,
         components: PropTypes.object.isRequired,
@@ -6113,6 +6116,11 @@ Calendar.propTypes =
            * An optional event time range for events that continue from another day
            */
           eventTimeRangeEndFormat: dateFormat,
+
+          /**
+           * An optional number, that determine whether events on the same row
+           */
+          minimumStartDifference: PropTypes.number,
         }),
 
         /**

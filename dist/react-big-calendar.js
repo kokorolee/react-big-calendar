@@ -12811,7 +12811,8 @@
             getters = _this$props.getters,
             components = _this$props.components,
             step = _this$props.step,
-            timeslots = _this$props.timeslots
+            timeslots = _this$props.timeslots,
+            minimumStartDifference = _this$props.minimumStartDifference
 
           var _assertThisInitialize = _assertThisInitialized(
               _assertThisInitialized(_this)
@@ -12823,7 +12824,8 @@
             events: events,
             accessors: accessors,
             slotMetrics: slotMetrics,
-            minimumStartDifference: Math.ceil((step * timeslots) / 2),
+            minimumStartDifference:
+              minimumStartDifference || Math.ceil((step * timeslots) / 2),
           })
           return styledEvents.map(function(_ref, idx) {
             var event = _ref.event,
@@ -13280,6 +13282,7 @@
     max: propTypes.instanceOf(Date).isRequired,
     getNow: propTypes.func.isRequired,
     isNow: propTypes.bool,
+    minimumStartDifference: propTypes.number,
     rtl: propTypes.bool,
     accessors: propTypes.object.isRequired,
     components: propTypes.object.isRequired,
@@ -17153,6 +17156,11 @@
        * An optional event time range for events that continue from another day
        */
       eventTimeRangeEndFormat: dateFormat,
+
+      /**
+       * An optional number, that determine whether events on the same row
+       */
+      minimumStartDifference: propTypes.number,
     }),
 
     /**
